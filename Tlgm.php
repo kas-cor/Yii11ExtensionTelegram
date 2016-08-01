@@ -1,8 +1,20 @@
 <?php
 
+/**
+ * @author kas-cor
+ * @link https://github.com/kas-cor/Yii11ExtensionTelegram
+ */
+
 class Tlgm extends CApplicationComponent {
 
+    /**
+     * @var string Token API Telegram
+     */
     public $token;
+    
+    /**
+     * @var int Chat ID 
+     */
     public $chat_id;
 
     public function init() {
@@ -10,6 +22,11 @@ class Tlgm extends CApplicationComponent {
         parent::init();
     }
 
+    /**
+     * Sending message
+     * @param string $message Text message
+     * @return string JSON response
+     */
     public function send($message) {
         if (empty($this->chat_id)) {
             return;
