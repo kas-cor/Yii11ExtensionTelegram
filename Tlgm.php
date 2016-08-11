@@ -31,7 +31,7 @@ class Tlgm extends CApplicationComponent {
         if (empty($this->chat_id)) {
             return;
         }        
-        $msg = strip_tags(nl2br(trim($message)));
+        $msg = strip_tags(nl2br(trim($this->convertToUtf8($message))));
         $req = "https://api.telegram.org/bot" . $this->token;
         $req.= "/sendMessage?chat_id=" . $this->chat_id;
         $req.= "&text=" . urlencode($msg);
@@ -45,4 +45,17 @@ class Tlgm extends CApplicationComponent {
         return $json;
     }
 
+    /**
+     * Convert to utf-8, if win-1251
+     * @param type $text
+     * @return type
+     */
+    private function convertToUtf8($text) {
+        if (!preg_match("//u", $text)) {
+            return iconv("windows-1251", "utf-8", $text);
+        } else {
+            return $text;
+        }
+    }
+    
 }
