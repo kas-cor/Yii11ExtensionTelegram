@@ -9,7 +9,7 @@
 
 Прописать в конфиге
 ```
-...
+...php
 // application components
 'components' => array(
     ...
@@ -27,6 +27,6 @@
 Для получения сообщений узнайте свой ID у бота [MyTelegramID_bot](https://telegram.me/MyTelegramID_bot)
 ## Использование
 
-```
+```php
 Yii::app()->telegram->send("Message text");
 ```
