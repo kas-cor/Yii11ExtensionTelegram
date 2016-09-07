@@ -8,8 +8,8 @@
 ```
 
 Прописать в конфиге
-```
-...php
+```php
+...
 // application components
 'components' => array(
     ...
